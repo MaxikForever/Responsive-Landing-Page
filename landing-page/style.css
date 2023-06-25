@@ -53,7 +53,7 @@
   }
 }
 
-
+// https://piccalil.li/blog/a-modern-css-reset
 
 /* Box sizing rules */
 *,
@@ -120,7 +120,6 @@ svg {
   }
 }
 
-
 /* general styling */
 
 body {
@@ -129,9 +128,9 @@ body {
   color: var(--clr-primary-400);
 }
 
-p:not([class]) { 
-  opacity: 0.5;
-  max-width: 32ch; 
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 32ch;
 }
 
 p[data-width="wide"] {
@@ -160,10 +159,9 @@ p[data-width="wide"] {
   color: var(--clr-accent-400);
 }
 
-.button[data-shadow='none'] {
-  box-shadow:none;
+.button[data-shadow="none"] {
+  box-shadow: none;
 }
-
 
 .button:hover,
 .button:focus-visible {
@@ -260,6 +258,7 @@ p[data-width="wide"] {
     display: none;
   }
 }
+
 /* footer */
 
 .primary-footer {
@@ -269,13 +268,11 @@ p[data-width="wide"] {
 .primary-footer-wrapper {
   display: grid;
   gap: var(--size-700);
-  grid-template-areas: 
-    'form'
-    'nav'
-    'logo-social';
+  grid-template-areas:
+    "form"
+    "nav"
+    "logo-social";
 }
-
-
 
 .primary-footer-logo-social {
   grid-area: logo-social;
@@ -286,7 +283,6 @@ p[data-width="wide"] {
   gap: var(--size-700);
 }
 
-
 .primary-footer-nav {
   grid-area: nav;
 }
@@ -295,14 +291,23 @@ p[data-width="wide"] {
   grid-area: form;
 
   display: grid;
-  align-content: space-between ;
+  align-content: space-between;
 }
 
+.primary-footer form {
+  display: flex;
+  gap: var(--size-200);
+}
+
+input:where([type="text"], [type="email"], ) {
+  border-radius: 100vw;
+  border: 0;
+  padding: var(--size-300) var(--size-400);
+}
 
 @media (min-width: 50em) {
   .primary-footer-wrapper {
-    grid-template-areas: 
-    'logo-social nav form'
+    grid-template-areas: "logo-social nav form";
   }
 
   .primary-footer-logo-social {
@@ -312,32 +317,29 @@ p[data-width="wide"] {
   }
 }
 
-
 @media (max-width: 50em) {
   .primary-footer-wrapper > * {
     margin-inline: auto;
-  }  
+  }
 }
-
 
 /* footer navigation */
 
 .footer-nav {
   columns: 2;
-  gap: clamp(var(--size-600), 10vw, var(--size-900))
+  gap: clamp(var(--size-200), 30vw, var(--size-900));
 }
 
 .footer-nav a {
-  color: var(--clr-accent-100);
+  color: var(--clr-neutral-100);
   text-decoration: none;
 }
 
 .footer-nav a:is(:hover, :focus) {
   color: var(--clr-accent-400);
-
 }
 
-/* social-list */
+/* social list */
 
 .social-list {
   display: flex;
@@ -351,32 +353,16 @@ p[data-width="wide"] {
 }
 
 .social-list a:is(:hover, :focus) .social-icon {
-  fill: var(--clr-accent-400)
-}
-
-
-.primary-footer form{
-  display: flex;
-  gap: var(--size-200);
-}
-
-input:where( [type="text"], [type="email"]) {
-  border-radius: 100vw;
-  border: 0;
-  padding: var(--size-300) var(--size-400);
+  fill: var(--clr-accent-400);
 }
 
 @media (min-width: 50em) {
-
   .social-list {
-    gap: var(--size-400);
+    gap: var(--size-300);
   }
-
   .social-icon {
     width: var(--size-500);
   }
-
-
 }
 
 /* cta */
@@ -393,24 +379,19 @@ input:where( [type="text"], [type="email"]) {
   }
 }
 
-
 .cta::before {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
-  background-image: 
-  url('images/bg-tablet-pattern.svg'),
-  url('images/bg-tablet-pattern.svg ');
-  background-position: -3rem -5rem, 95rem -42rem;
-  background-repeat:no-repeat ;
+  background-image: url("images/bg-tablet-pattern.svg"),
+    url("images/bg-tablet-pattern.svg");
+  background-position: -15rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
   opacity: 0.1;
 }
 
-
 /* Utility classes */
-
-
 
 .visually-hidden {
   position: absolute;
@@ -423,7 +404,6 @@ input:where( [type="text"], [type="email"]) {
   white-space: nowrap; /* added line */
   border: 0;
 }
-
 
 .container {
   --max-width: 1110px;
@@ -445,30 +425,23 @@ input:where( [type="text"], [type="email"]) {
   }
 }
 
-
 .vertical-align-center {
   align-items: center;
 }
-
 
 .justify-self-end {
   justify-self: end;
 }
 
-@media (min-width: 50em){
+@media (min-width: 50em) {
   .justify-self-end-md {
     justify-self: end;
   }
-  }
-
+}
 
 :where(.flow :not(:first-child)) {
   margin-top: var(--flow-spacer, 3em);
 }
-
-
-
-
 
 .text-primary-400 {
   color: var(--clr-primary-400);
